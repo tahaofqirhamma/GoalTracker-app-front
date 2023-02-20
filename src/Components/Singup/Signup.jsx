@@ -5,17 +5,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../Context/Context";
 
 const Signup = () => {
+  const { setUsername, setSemail, setSpassword, handelSingup } =
+    useGlobalContext();
   const navigate = useNavigate();
-  const { setUsername, setSemail, setSpassword } = useGlobalContext();
-  const handelSing = (e) => {
-    e.preventDefault();
-    navigate("/Login");
-  };
+
   return (
     <>
       <XNavbar />
       <section className="section singup">
-        <form className="from" onSubmit={handelSing}>
+        <form className="from" onSubmit={handelSingup} method="POST">
           <div className="singup-desc">
             <p className="titel">
               Sing Up To Goal<span>Tracker</span>
@@ -28,6 +26,7 @@ const Signup = () => {
               name="username"
               placeholder="Username"
               onChange={(e) => setUsername(e.target.value)}
+              required
             />
           </fieldset>
           <fieldset>
@@ -37,6 +36,7 @@ const Signup = () => {
               name="semail"
               placeholder="Email"
               onChange={(e) => setSemail(e.target.value)}
+              required
             />
           </fieldset>
           <fieldset>
@@ -46,10 +46,19 @@ const Signup = () => {
               name="spassword"
               placeholder="Password"
               onChange={(e) => setSpassword(e.target.value)}
+              required
             />
           </fieldset>
 
-          <button className="btn">Sing Up</button>
+          <button
+            className="btn"
+            type="submit"
+            // onClick={() => {
+            //   setTimeout(() => navigate("/login"), 5000);
+            // }}
+          >
+            Sing Up
+          </button>
           <div className="singuping">
             <div className="choice">
               <hr />

@@ -1,6 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 const AppContext = React.createContext();
+
+// ====================== API ========================
+
+const singupURL = "http://localhost/GoalTracker-app-back/api/singup.php";
 
 const AppProvider = ({ children }) => {
   // ============= Login infs ============
@@ -9,7 +15,7 @@ const AppProvider = ({ children }) => {
   //   =====================================
 
   // ============ Sing up infos ==============
-  const [username, setUsername] = useState("");
+  const [susername, setUsername] = useState("");
   const [semail, setSemail] = useState("");
   const [spassword, setSpassword] = useState("");
   //   ======================================
@@ -31,6 +37,24 @@ const AppProvider = ({ children }) => {
 
   // ==================== inputs handeling ==============================
 
+  const handelSingup = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        singupURL,
+        { susername, semail, spassword },
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -49,6 +73,7 @@ const AppProvider = ({ children }) => {
         taskdesc,
         taksdate,
         taskstate,
+        handelSingup,
       }}
     >
       {children}
