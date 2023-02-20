@@ -1,0 +1,86 @@
+@import "../../SCSS/utilities";
+
+section.mytasks {
+    padding: 10px;
+
+    @include flex(column, flex-start, stretch);
+    gap: 1rem;
+
+    p {
+        text-align: start;
+        @include font(#272C36, 1.7rem, 500);
+    }
+
+    .task {
+        border: 1.5px #3C5659 solid;
+        border-radius: 1rem;
+        @include flex(column, flex-start, stretch);
+        gap: 1rem;
+        padding: 20px;
+        // box-shadow: 0px 7px 15px -3px #3C5659;
+
+        .task-infos {
+            @include flex(row, space-between, center);
+
+            .task-name {
+                text-align: start;
+                @include font(#272C36, 1.7rem, 500);
+            }
+
+            .task-state {
+                text-align: start;
+                font-style: italic;
+                @include font(#3C5659, 1rem, 500);
+            }
+
+            .task-date {
+                text-align: start;
+                @include font(gray, 1rem, 500);
+            }
+
+            .btn {
+                background-color: #3C5659;
+                border-radius: 1rem;
+                border: none;
+                cursor: pointer;
+                padding: 7px 50px;
+                @include font(#fff, 1rem, 500);
+            }
+        }
+
+        .task-details {
+            @include flex(column, flex-start, stretch);
+            gap: 1rem;
+
+            .task-description {
+                p {
+                    @include font(#3C5659, 1.2rem, 500);
+                }
+            }
+
+            .task-control {
+                @include flex(row, flex-end, center);
+                gap: 1rem;
+
+                .btn.delete {
+                    background-color: #f00;
+                    border-radius: 1rem;
+                    border: none;
+                    cursor: pointer;
+                    padding: 7px 50px;
+                    @include font(#fff, 1rem, 500);
+                }
+
+                .btn.modify {
+                    background-color: #272C36;
+                    border-radius: 1rem;
+                    border: none;
+                    cursor: pointer;
+                    padding: 7px 50px;
+                    @include font(#fff, 1rem, 500);
+                }
+            }
+        }
+    }
+
+}

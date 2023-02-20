@@ -1,0 +1,107 @@
+@import "../../SCSS/utilities";
+
+section.singup {
+    background-color: #3C5659;
+    height: 91.5vh;
+    @include flex(row, center, center);
+
+    form {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 3rem;
+        height: 55vh;
+        @include flex(column, center, center);
+        gap: 20px;
+        width: 30vw;
+
+        .singup-desc {
+            p {
+                text-align: center;
+                @include font(#272C36, 1.7rem, 500);
+
+                span {
+                    @include font(#3C5659, 1.7rem, 600);
+
+                }
+
+            }
+        }
+
+        fieldset {
+            border: 1.5px #3C5659 solid;
+            padding: 0 12px;
+            width: 100%;
+            border-radius: 1rem;
+
+            legend {
+                padding: 0 10px;
+                @include font(#272C36, 1rem, 500)
+            }
+
+            input {
+                border: none;
+                width: 100%;
+                padding: 7px 5px;
+                outline: none;
+                height: 30px;
+                @include font(#3C5659, 1rem, 600);
+                text-align: start;
+            }
+        }
+
+        .btn {
+            background-color: #3C5659;
+            padding: 5px 50px;
+            border: #3C5659 solid 2.4px;
+            @include font(#fff, 1rem, 500);
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 1rem;
+
+            &:hover {
+
+                border: #000 solid 2.4px;
+
+            }
+        }
+
+        .singuping {
+            @include flex(column, flex-start, center);
+
+            .choice {
+                @include flex(row, center, center);
+                gap: 5px;
+                @include font(#5e6d55, 1.2rem, 500);
+
+                hr {
+                    color: #5e6d55;
+                    width: 100px;
+
+
+                }
+            }
+
+            p {
+                @include font(#3C5659, 1rem, 400);
+                margin-bottom: 10px;
+            }
+
+            .btn {
+                background-color: #fff;
+                padding: 5px 50px;
+                border: #3C5659 solid 2.4px;
+                @include font(#3C5659, 01rem, 500);
+                cursor: pointer;
+                text-decoration: none;
+                border-radius: 1rem;
+
+                &:hover {
+                    background-color: #3C5659;
+                    border: #3C5659 solid 2.4px;
+                    @include font(#fff, 1rem, 500);
+                }
+            }
+        }
+
+    }
+}

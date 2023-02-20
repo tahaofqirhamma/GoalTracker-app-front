@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+}
+
+//>>>>>>>>>>>>>>>>Typoghrafy<<<<<<<<<<<<<<<<
+
+@mixin font($color, $size, $weight) {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+}
+
+//>>>>>>>>>>>>>>>Flex & Grid<<<<<<<<<<<<<<<<<<<<<
+
+@mixin flex($dire, $justf, $align) {
+    display: flex;
+    flex-direction: $dire;
+    justify-content: $justf;
+    align-items: $align;
+}

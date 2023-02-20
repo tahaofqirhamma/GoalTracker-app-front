@@ -1,0 +1,15 @@
+@import "../../SCSS/utilities";
+
+nav.Mnavbar {
+    height: 7.5vh;
+    @include flex(row, space-between, stretch);
+    border-bottom: 2px #3C5659 solid;
+
+    .user {
+        p {
+            text-align: center !important;
+            @include font(#272C36, 1rem, 500);
+            padding: 24px;
+        }
+    }
+}

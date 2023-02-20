@@ -1,0 +1,22 @@
+@import "../../SCSS/utilities";
+
+.navbar {
+    @include flex(row, space-between, center);
+    padding: 10px 20px;
+    border-bottom: 2px #3C5659 solid;
+
+    .logo {
+        @include flex(row, center, center);
+        gap: 7px;
+
+        h1 {
+            @include font(#272C36, 2.3rem, 600);
+
+            span {
+                color: #3C5659;
+                font-family: monospace;
+
+            }
+        }
+    }
+}

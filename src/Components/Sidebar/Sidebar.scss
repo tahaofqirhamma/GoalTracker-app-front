@@ -1,0 +1,131 @@
+@import "../../SCSS/utilities";
+
+section.sideBar {
+    height: 100vh;
+    @include flex(column, flex-start, stretch);
+    border-right: 1px #3C5659 solid;
+
+    .part1 {
+        @include flex(column, flex-start, stretch);
+        gap: 0.5rem;
+        height: 70%;
+
+
+        .logo {
+            gap: 7px;
+            padding: 2px;
+            @include flex(row, space-between, center);
+            padding: 5PX;
+
+            h1 {
+                @include font(#272C36, 2rem, 600);
+
+                span {
+                    color: #3C5659;
+                    font-family: monospace;
+
+                }
+            }
+        }
+
+        .pages {
+            height: 100% !important;
+            background-color: #3C5659;
+
+            .links {
+
+                @include flex(column, center, stretch);
+                gap: 3rem;
+
+
+                li {
+
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+                    list-style-type: none;
+                    @include flex(row, flex-start, center);
+                    gap: 7px;
+                    padding: 0.1rem 1rem;
+
+                    &:hover {
+                        /* From https://css.glass */
+                        background: rgba(255, 255, 255, 0.22);
+
+                        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                        backdrop-filter: blur(0px);
+
+                        // border: 1px solid rgba(255, 255, 255, 0.3);  
+                    }
+
+
+                    a {
+                        // border: 1PX #fff solid;
+                        padding: 1rem;
+                        width: 100%;
+                        text-decoration: none !important;
+                        @include font(#fff, 1.2rem, 500);
+                    }
+                }
+
+
+            }
+        }
+
+    }
+
+    .part2 {
+        background-color: #3C5659;
+        height: 100%;
+        @include flex(column, flex-end, stretch);
+        // gap: 1rem;   
+
+        .account-set {
+            p {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+                list-style-type: none;
+                @include flex(row, flex-start, center);
+                gap: 7px;
+                padding: 0.1rem 1rem;
+                width: 100%;
+
+                &:hover {
+
+                    background: rgba(255, 255, 255, 0.22);
+                    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                    backdrop-filter: blur(0px);
+                }
+
+                a {
+                    // border: 1PX #fff solid;
+                    padding: 1rem;
+                    width: 100%;
+                    text-decoration: none !important;
+                    @include font(#fff, 1.2rem, 500);
+                }
+            }
+        }
+
+        p {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            list-style-type: none;
+            @include flex(row, flex-start, center);
+            gap: 7px;
+            padding: 0.1rem 1rem;
+            width: 100%;
+
+            &:hover {
+
+                background: rgba(255, 255, 255, 0.22);
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(0px);
+            }
+
+            a {
+                // border: 1PX #fff solid;
+                padding: 1rem;
+                width: 100%;
+                text-decoration: none !important;
+                @include font(#fff, 1.2rem, 500);
+            }
+        }
+    }
+}

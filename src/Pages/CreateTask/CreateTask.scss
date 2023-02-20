@@ -1,0 +1,130 @@
+@import "../../SCSS/utilities";
+
+section.tasks {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    border: 1px #3C5659 solid;
+
+    form {
+        background-color: #fff;
+        border-right: #272C36 1px solid;
+        @include flex(column, flex-start, stretch);
+        padding: 10px;
+        gap: 20px;
+        // width: 30vw;
+
+        p {
+            text-align: start;
+            @include font(#272C36, 1.7rem, 500);
+        }
+
+        fieldset {
+            border: 2px #3C5659 solid;
+            padding: 0 12px;
+            width: 100%;
+            border-radius: 1rem;
+
+            legend {
+                padding: 0 10px;
+                @include font(#272C36, 1rem, 500)
+            }
+
+            input,
+            select,
+            textarea {
+                border: none;
+                width: 100%;
+                padding: 0px 5px;
+                outline: none;
+                height: 30px;
+                @include font(#3C5659, 1rem, 600);
+                text-align: start;
+            }
+
+            textarea {
+                height: 15vh;
+            }
+
+        }
+
+        .from-control {
+            @include flex(row, flex-end, center);
+            gap: 1rem;
+
+            .btn {
+                padding: 7px 20px;
+                width: 150px;
+                border: 1.5px #3C5659 solid;
+                border-radius: 1rem;
+                cursor: pointer;
+
+            }
+
+            .a {
+                background-color: #fff;
+                @include font(#3C5659, 1rem, 600);
+
+                &:hover {
+                    background-color: #3C5659;
+                    @include font(#fff, 1rem, 600);
+                }
+            }
+
+            .b {
+                background-color: #3C5659;
+                @include font(#fff, 1rem, 600);
+
+                &:hover {
+                    background-color: hsla(186, 19%, 29%, 0.9);
+                }
+            }
+        }
+    }
+
+    .additonal {
+        @include flex(column, center, center);
+
+        img {
+            width: 100%;
+        }
+
+        .quote {
+            border: #fff 1px solid;
+            background-color: #3C5659;
+            font-style: italic;
+            @include flex(column, flex-start, center);
+            @include font(#fff, 1.2rem, 600);
+            height: 100%;
+            text-align: center;
+            padding: 10px 60px;
+
+            .quote-c {
+                @include flex(row, center, center);
+
+                p {
+                    border: none;
+                    // font-style: italic !important;
+                    @include font(#fff, 2rem, 600);
+
+                }
+            }
+
+            svg {
+                text-align: start;
+            }
+
+            p {
+                border: 1.5px #fff solid;
+                border-radius: 1rem;
+                padding: 50px;
+            }
+
+            span {
+                text-align: center;
+                font-style: normal;
+            }
+        }
+    }
+}

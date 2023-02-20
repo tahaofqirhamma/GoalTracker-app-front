@@ -1,0 +1,132 @@
+@import "../../SCSS/utilities";
+
+.section {
+    height: 100vh;
+    overflow-y: hidden;
+
+    .home-c {
+        @include flex(row, space-between, center);
+        overflow-y: hidden;
+        // background-image: radial-gradient(50% 50% at 50% 50%, #3C5659 0, #FFF 100%);
+
+        .shc {
+            position: relative;
+
+            img {
+                height: 100Vh;
+                aspect-ratio: auto;
+                // filter: blur(1px);
+            }
+
+            .test {
+
+
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+
+                @include flex(row, center, center);
+
+                .quote {
+                    border: #fff 1px solid;
+                    font-style: italic;
+                    @include flex(row, center, center);
+                    @include font(#fff, 1.2rem, 600);
+                    height: 100px;
+                    text-align: center;
+                    padding: 10px 50px;
+                    border-radius: 10Px;
+                    background-color: rgba(0, 0, 0, 0.4);
+                    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+                    span {
+                        text-align: center
+                    }
+                }
+            }
+
+
+        }
+
+        .desc-c {
+            @include flex(column, center, center);
+            position: relative;
+
+            header {
+                position: absolute;
+                top: -260px;
+                left: 24px;
+                @include flex(row, space-between, center);
+                gap: 450px;
+
+
+                .logo {
+                    gap: 7px;
+                    @include flex(row, space-between, center);
+
+                    h1 {
+                        @include font(#272C36, 2.4rem, 600);
+
+                        span {
+                            color: #3C5659;
+                            font-family: monospace;
+
+                        }
+                    }
+                }
+
+            }
+
+            .desc {
+
+                @include flex(column, center, center);
+                gap: 1rem;
+                text-align: center;
+                padding: 40px;
+
+
+
+
+                h1 {
+                    @include font(#272C36, 2.4rem, 600);
+
+                    span {
+                        color: #3C5659;
+                        font-family: monospace;
+
+                    }
+                }
+
+                p {
+                    @include font(#272C36, 1.25rem, 300);
+                    line-height: 1.7;
+                    text-align: center;
+
+
+                    span {
+                        @include font(#3C5659, 1.3rem, 500)
+                    }
+                }
+
+                .btn {
+                    background: none;
+                    padding: 5px 40px;
+                    border: #3C5659 solid 2.4px;
+                    @include font(#3C5659, 1rem, 500);
+                    cursor: pointer;
+                    text-decoration: none;
+                    border-radius: 1rem;
+
+                    &:hover {
+                        background-color: #3C5659;
+                        color: #fff;
+                    }
+
+                }
+            }
+        }
+
+
+    }
+}
