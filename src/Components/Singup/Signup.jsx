@@ -2,10 +2,11 @@ import React from "react";
 import "./Singup.scss";
 import XNavbar from "../XNavbar/XNavbar";
 import { Link, useNavigate } from "react-router-dom";
+import { useGlobalContext } from "../../Context/Context";
 
 const Signup = () => {
   const navigate = useNavigate();
-
+  const { setUsername, setSemail, setSpassword } = useGlobalContext();
   const handelSing = (e) => {
     e.preventDefault();
     navigate("/Login");
@@ -22,15 +23,30 @@ const Signup = () => {
           </div>
           <fieldset>
             <legend>Username</legend>
-            <input type="text" name="username" placeholder="Username" />
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              onChange={(e) => setUsername(e.target.value)}
+            />
           </fieldset>
           <fieldset>
             <legend>Eamil</legend>
-            <input type="email" name="email" placeholder="Email" />
+            <input
+              type="email"
+              name="semail"
+              placeholder="Email"
+              onChange={(e) => setSemail(e.target.value)}
+            />
           </fieldset>
           <fieldset>
             <legend>Password</legend>
-            <input type="password" name="password" placeholder="Password" />
+            <input
+              type="password"
+              name="spassword"
+              placeholder="Password"
+              onChange={(e) => setSpassword(e.target.value)}
+            />
           </fieldset>
 
           <button className="btn">Sing Up</button>

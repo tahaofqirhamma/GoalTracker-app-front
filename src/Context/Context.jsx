@@ -18,12 +18,43 @@ const AppProvider = ({ children }) => {
   const [taskname, setTaskname] = useState("");
   const [taskdesc, setTaskdesc] = useState("");
   const [taksdate, setTaskdate] = useState("");
-  const [task, setTaskstate] = useState("");
+  const [taskstate, setTaskstate] = useState("");
+  const [tasks, setTasks] = useState([
+    {
+      aname: taskname,
+      state: taskstate,
+      desc: taskdesc,
+      date: taskstate,
+    },
+  ]);
   //   ===========================================
 
   // ==================== inputs handeling ==============================
 
-  return <AppContext.Provider value={{}}>{children}</AppContext.Provider>;
+  return (
+    <AppContext.Provider
+      value={{
+        setEmail,
+        setPassword,
+        setUsername,
+        setSemail,
+        setSpassword,
+        setTasks,
+        setTaskname,
+        setTaskdesc,
+        setTaskdate,
+        setTaskstate,
+        tasks,
+        taskname,
+        taskdesc,
+        taksdate,
+        taskstate,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  );
 };
 
-export { AppProvider, AppContext };
+export { AppProvider };
+export const useGlobalContext = () => useContext(AppContext);

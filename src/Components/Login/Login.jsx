@@ -1,11 +1,13 @@
 import React from "react";
+import "./Login.scss";
 import { Link } from "react-router-dom";
 import XNavbar from "../XNavbar/XNavbar";
-import "./Login.scss";
 import { useNavigate } from "react-router-dom";
+import { useGlobalContext } from "../../Context/Context";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { setEmail, setPassword } = useGlobalContext();
 
   const handelLog = (e) => {
     e.preventDefault();
@@ -23,11 +25,19 @@ const Login = () => {
           </div>
           <fieldset>
             <legend>Eamil</legend>
-            <input type="email" name="email" />
+            <input
+              type="email"
+              name="email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </fieldset>
           <fieldset>
             <legend>Password</legend>
-            <input type="password" name="password" />
+            <input
+              type="password"
+              name="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </fieldset>
           <button className="btn">Login</button>
           <div className="singuping">

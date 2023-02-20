@@ -1,15 +1,23 @@
 import React from "react";
 import "./CreateTask.scss";
 import addTask from "../../assets/images/add_tasks.svg";
+import { useGlobalContext } from "../../Context/Context";
 
 const CreateTask = () => {
+  const { setTaskname, setTaskdesc, setTaskdate, setTaskstate } =
+    useGlobalContext();
   return (
     <section className="section tasks">
       <form className="from taks-from">
         <p>Create Your Task</p>
         <fieldset>
           <legend>Task name</legend>
-          <input type="text" name="Taskname" placeholder="Task name" />
+          <input
+            type="text"
+            name="Taskname"
+            placeholder="Task name"
+            onChange={(e) => setTaskname(e.target.value)}
+          />
         </fieldset>
         <fieldset>
           <legend>Task description</legend>
@@ -17,15 +25,22 @@ const CreateTask = () => {
             type="text"
             name="taskdesc"
             placeholder="Task description"
+            onChange={(e) => setTaskdesc(e.target.value)}
           />
         </fieldset>
         <fieldset>
           <legend>TasK date</legend>
-          <input type="datetime-local" />
+          <input
+            type="datetime-local"
+            onChange={(e) => setTaskdate(e.target.value)}
+          />
         </fieldset>
         <fieldset>
           <legend>Task state</legend>
-          <select placeholder="Set task state">
+          <select
+            placeholder="Set task state"
+            onChange={(e) => setTaskstate(e.target.value)}
+          >
             <option value="Running">Running</option>
             <option value="Cancelled">Cancelled</option>
             <option value="Completed">Completed</option>
