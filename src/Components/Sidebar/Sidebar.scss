@@ -105,6 +105,7 @@ section.sideBar {
         }
 
         p {
+
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
             list-style-type: none;
             @include flex(row, flex-start, center);
@@ -119,11 +120,14 @@ section.sideBar {
                 backdrop-filter: blur(0px);
             }
 
-            a {
+            button {
                 // border: 1PX #fff solid;
+                cursor: pointer;
+                background: none;
+                border: none;
                 padding: 1rem;
                 width: 100%;
-                text-decoration: none !important;
+                text-align: start;
                 @include font(#fff, 1.2rem, 500);
             }
         }

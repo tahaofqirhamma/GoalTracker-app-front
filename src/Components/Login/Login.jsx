@@ -4,20 +4,47 @@ import { Link } from "react-router-dom";
 import XNavbar from "../XNavbar/XNavbar";
 import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../Context/Context";
+import axios from "axios";
 
 const Login = () => {
-  const navigate = useNavigate();
-  const { setEmail, setPassword } = useGlobalContext();
+  const loginURL = "http://localhost/GoalTracker-app-back/api/login.php";
 
-  const handelLog = (e) => {
+  const navigate = useNavigate();
+  const { setEmail, setPassword, email, password } = useGlobalContext();
+
+  const handelLogin = async (e) => {
     e.preventDefault();
-    navigate("/Home/CreateTask");
+    try {
+      const response = await axios.post(
+        loginURL,
+        { email, password },
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      const token = response.data.token;
+
+      localStorage.setItem("token", token);
+      const loginState = response.data.isLoged;
+      if (loginState) {
+        navigate("/Home");
+      } else {
+        alert(response.data.message);
+      }
+      // console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
+
   return (
     <>
       <XNavbar />
       <section className="section login">
-        <form className="form" onSubmit={handelLog}>
+        <form className="form" onSubmit={handelLogin} method="POST">
           <div className="login-desc">
             <p className="titel">
               Log In To Goal<span>Tracker</span>
@@ -39,7 +66,9 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </fieldset>
-          <button className="btn">Login</button>
+          <button className="btn" type="submit">
+            Login
+          </button>
           <div className="singuping">
             <div className="choice">
               <hr />

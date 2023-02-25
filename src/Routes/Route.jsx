@@ -30,18 +30,7 @@ const router = createBrowserRouter([
       },
     ],
   },
-  // {
-  //   path: "/Home/CreateTask",
-  //   element: <CreateTask />,
-  // },
-  // {
-  //   path: "/Home/MyTasks",
-  //   element: <MyTasks />,
-  // },
-  {
-    path: "/Home/Statistics",
-    element: <Statistics />,
-  },
+
   {
     path: "/Login",
     element: <Login />,

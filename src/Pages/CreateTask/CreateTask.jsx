@@ -4,17 +4,27 @@ import addTask from "../../assets/images/add_tasks.svg";
 import { useGlobalContext } from "../../Context/Context";
 
 const CreateTask = () => {
-  const { setTaskname, setTaskdesc, setTaskdate, setTaskstate } =
-    useGlobalContext();
+  const {
+    setTaskname,
+    setTaskdesc,
+    setTaskdate,
+    setTaskstate,
+    handelTask,
+    taskname,
+    taskdate,
+    taskstate,
+  } = useGlobalContext();
+  // console.log(taskname);
+  console.log(taskdate);
   return (
     <section className="section tasks">
-      <form className="from taks-from">
+      <form className="from taks-from" method="POST" onSubmit={handelTask}>
         <p>Create Your Task</p>
         <fieldset>
           <legend>Task name</legend>
           <input
             type="text"
-            name="Taskname"
+            name="taskname"
             placeholder="Task name"
             onChange={(e) => setTaskname(e.target.value)}
           />
@@ -31,13 +41,16 @@ const CreateTask = () => {
         <fieldset>
           <legend>TasK date</legend>
           <input
+            name="taskdate"
             type="datetime-local"
+            value={taskdate}
             onChange={(e) => setTaskdate(e.target.value)}
           />
         </fieldset>
         <fieldset>
           <legend>Task state</legend>
           <select
+            name="taskstate"
             placeholder="Set task state"
             onChange={(e) => setTaskstate(e.target.value)}
           >

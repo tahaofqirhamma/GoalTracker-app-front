@@ -7,7 +7,9 @@ const AppContext = React.createContext();
 // ====================== API ========================
 
 const singupURL = "http://localhost/GoalTracker-app-back/api/singup.php";
-
+const createTaskURL =
+  "http://localhost/goaltracker-app-back/api/createTask.php";
+const userURL = "http://localhost/GoalTracker-app-back/api/login.php";
 const AppProvider = ({ children }) => {
   // ============= Login infs ============
   const [email, setEmail] = useState("");
@@ -23,14 +25,14 @@ const AppProvider = ({ children }) => {
   //   =============== Task info =================
   const [taskname, setTaskname] = useState("");
   const [taskdesc, setTaskdesc] = useState("");
-  const [taksdate, setTaskdate] = useState("");
+  const [taskdate, setTaskdate] = useState("");
   const [taskstate, setTaskstate] = useState("");
   const [tasks, setTasks] = useState([
     {
-      aname: taskname,
+      name: taskname,
       state: taskstate,
       desc: taskdesc,
-      date: taskstate,
+      date: taskdate,
     },
   ]);
   //   ===========================================
@@ -49,7 +51,31 @@ const AppProvider = ({ children }) => {
           },
         }
       );
-      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handelTask = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        createTaskURL,
+        { taskname, taskdate, taskdesc, taskstate },
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log(response);
+      setTasks(...tasks, {
+        name: taskname,
+        state: taskstate,
+        desc: taskdesc,
+        date: taskdate,
+      });
+      console.log(tasks);
     } catch (error) {
       console.error(error);
     }
@@ -71,9 +97,13 @@ const AppProvider = ({ children }) => {
         tasks,
         taskname,
         taskdesc,
-        taksdate,
+        taskdate,
         taskstate,
+        taskstate,
+        email,
+        password,
         handelSingup,
+        handelTask,
       }}
     >
       {children}

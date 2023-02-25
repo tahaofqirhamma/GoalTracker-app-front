@@ -8,6 +8,10 @@ const Signup = () => {
   const { setUsername, setSemail, setSpassword, handelSingup } =
     useGlobalContext();
   const navigate = useNavigate();
+  const handler = (e) => {
+    handelSingup(e);
+    navigate("/login");
+  };
 
   return (
     <>
@@ -53,9 +57,9 @@ const Signup = () => {
           <button
             className="btn"
             type="submit"
-            // onClick={() => {
-            //   setTimeout(() => navigate("/login"), 5000);
-            // }}
+            onClick={() => {
+              setTimeout(() => handler(), 5000);
+            }}
           >
             Sing Up
           </button>
