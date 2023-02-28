@@ -57,11 +57,16 @@ section.sideBar {
                     }
 
 
+                    button,
                     a {
                         // border: 1PX #fff solid;
+                        cursor: pointer;
+                        background: none;
+                        text-decoration: none;
+                        border: none;
                         padding: 1rem;
                         width: 100%;
-                        text-decoration: none !important;
+                        text-align: start;
                         @include font(#fff, 1.2rem, 500);
                     }
                 }

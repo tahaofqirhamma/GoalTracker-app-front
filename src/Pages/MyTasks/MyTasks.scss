@@ -2,6 +2,7 @@
 
 section.mytasks {
     padding: 10px;
+    overflow-y: scroll;
 
     @include flex(column, flex-start, stretch);
     gap: 1rem;
@@ -63,7 +64,7 @@ section.mytasks {
                 gap: 1rem;
 
                 .btn.delete {
-                    background-color: #f00;
+                    background-color: #272C36;
                     border-radius: 1rem;
                     border: none;
                     cursor: pointer;
@@ -72,7 +73,7 @@ section.mytasks {
                 }
 
                 .btn.modify {
-                    background-color: #272C36;
+                    background-color: #3C5659;
                     border-radius: 1rem;
                     border: none;
                     cursor: pointer;

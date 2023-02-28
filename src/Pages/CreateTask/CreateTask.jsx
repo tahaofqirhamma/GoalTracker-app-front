@@ -14,8 +14,7 @@ const CreateTask = () => {
     taskdate,
     taskstate,
   } = useGlobalContext();
-  // console.log(taskname);
-  console.log(taskdate);
+
   return (
     <section className="section tasks">
       <form className="from taks-from" method="POST" onSubmit={handelTask}>
@@ -59,6 +58,11 @@ const CreateTask = () => {
             <option value="Completed">Completed</option>
           </select>
         </fieldset>
+        <input
+          type="hidden"
+          name="currentUser"
+          value={localStorage.getItem("username")}
+        ></input>
         <div className="from-control">
           <button className="btn a" type="reset">
             Cleare all

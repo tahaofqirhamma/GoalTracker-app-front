@@ -26,11 +26,16 @@ const Login = () => {
       );
 
       const token = response.data.token;
-
+      const username = response.data.username;
+      const userID = response.data.id;
       localStorage.setItem("token", token);
+      localStorage.setItem("username", username);
+      localStorage.setItem("userID", userID);
+
       const loginState = response.data.isLoged;
       if (loginState) {
-        navigate("/Home");
+        console.log(response.data);
+        navigate("/Home/CreateTask");
       } else {
         alert(response.data.message);
       }

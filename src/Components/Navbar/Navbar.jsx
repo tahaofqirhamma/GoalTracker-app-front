@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav className="Mnavbar">
       <div className="user">
-        <p>Welcome user !!!</p>
+        <p>Welcome {localStorage.getItem("username")} !!!</p>
       </div>
       <CurrentDate />
     </nav>

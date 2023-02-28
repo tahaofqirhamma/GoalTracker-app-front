@@ -2,13 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Sidebar.scss";
 import { useNavigate } from "react-router-dom";
+import { useGlobalContext } from "../../Context/Context";
 
 const Sidebar = () => {
+  const { getTasks } = useGlobalContext();
+
   const navigate = useNavigate();
   const hadleLogOUT = (e) => {
     e.preventDefault();
     navigate("/Login");
     localStorage.removeItem("token");
+    localStorage.removeItem("username");
+  };
+  const handleTaks = (e) => {
+    e.preventDefault();
+    getTasks(e);
+    navigate("/Home/MyTasks");
   };
   return (
     <section className="sideBar">
@@ -70,7 +79,13 @@ const Sidebar = () => {
                   d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z"
                 />
               </svg>
-              <Link to={`MyTasks`}>My Tasks</Link>
+              <button
+                onClick={(e) => {
+                  handleTaks(e);
+                }}
+              >
+                My Tasks
+              </button>
             </li>
             <li>
               <svg
